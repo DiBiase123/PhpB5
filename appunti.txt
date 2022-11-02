@@ -1,0 +1,7 @@
+nom demain admin
+xaraton 
+
+
+
+us:	phpmyadmin@local.com
+pw:	root
