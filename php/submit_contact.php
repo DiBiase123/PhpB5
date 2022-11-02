@@ -49,17 +49,22 @@
         
 </head>
 
-<?php include './header.php'; ?>
+<style>
+.orsocoin{
+background: linear-gradient(-135deg,#c850c0,#4158d0);
+}
+</style>
+<?php include './header.php'; ?> 
 
 <body>
      
 <!-- +++ SECTION WAVE +++ -->
 <section class="container-flex text-center">
-      <div class="row header justify-content-center">
+      <div class="row sfondo justify-content-center">
         <h2 class="display-2 mt-3"> <strong> Message bien reçu ! </strong></h2>
 
         <!-- +++ Content before waves +++ -->
-            <section class="bg-secondary col-auto mt-3 shadow-3 p-1 rounded">
+            <section class="orsocoin col-auto mt-3 shadow-3 p-1 rounded">
             <div class="card p-2">
                 <h5 class="card-title text-dark p-2">Rappel de vos informations</h5>
                 <div class="card-body p-2"> 
@@ -70,7 +75,7 @@
                 </div>
             </div>
             </section>
-        <!-- --- Content before waves --- -->
+        <!-- /// Content before waves ///  -->
        
         <!-- +++ Waves Container +++ -->
           <div class="mt-5">
