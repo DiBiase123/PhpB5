@@ -13,14 +13,12 @@
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/php/home.php">Home</a>
                 </li>
+               
                 <li class="nav-item">
-                <a class="nav-link" href="ferdi.php">Fender</a>
+                <a class="nav-link" href="../php/contact.php">Contact</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="contact.php">Contact</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="login.php">Log IN</a>
+                <a class="nav-link" href="../html/login.php">Log IN</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="matrix.php">Matrix</a>
@@ -29,8 +27,9 @@
                 <a class="nav-link" href="rains.php">Rains</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" href="../php/logout.php">Deconnexion</a>
                 </li>
+              
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

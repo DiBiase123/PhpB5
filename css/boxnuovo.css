@@ -1,5 +1,5 @@
 .limiter{
-    width: 100%;
+width: 100%;
 margin: 0 auto;
 padding: 0;
 box-sizing: border-box;
@@ -14,20 +14,19 @@ display: -moz-box;
 display: -ms-flexbox;
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
+/* justify-content: center; */
 align-items: center;
-padding: 15px;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 background: #9053c7;
 background: -webkit-linear-gradient(-135deg,#c850c0,#4158d0);
 background: -o-linear-gradient(-135deg,#c850c0,#4158d0);
 background: -moz-linear-gradient(-135deg,#c850c0,#4158d0);
 background: linear-gradient(-135deg,#c850c0,#4158d0);
-margin: 0;
-padding: 0;
-box-sizing: border-box;
 }
 
-.wrap-login{
+/* .wrap-login{
     width: 960px auto;
     min-width:550px ;
     max-width: 550px;
@@ -42,7 +41,7 @@ box-sizing: border-box;
     flex-wrap: wrap;
     justify-content: center;
     padding: 50px 75px 50px 75px;
-}
+} */
 
 .login100-form-title {
     font-family: Poppins-Bold;
@@ -73,27 +72,6 @@ box-sizing: border-box;
     }
     
     
-
-h1
-{
-    color:black;
-}
-
-#h1-conn
- {
-     color: green;
- }
-
- #h2-conn
- {
-     color:rgb(62, 143, 170);
- }
-
-.fontmenu{
-    text-transform: uppercase;
-    color:white;
-
-}
 
 .limiter2{
 width: 80%;

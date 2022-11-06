@@ -17,6 +17,28 @@ p {
   color: #333333;
 }
 
+/* ++++++++++ LINK COLORI ++++++++++ */
+
+  a {
+    color: var(--bs-pink);
+    text-decoration: none;
+  }
+    a:hover
+    {
+      color: var(--bs-indigo);
+    }
+
+  #a1
+  {
+    color: var(--bs-orange);
+  }
+  #a1:hover
+  {
+    color: var(--bs-pink);
+  }
+
+/* /////////// LINK COLORI /////////// */
+
 .limiter{
 width: 100%;
 margin: 0 auto;

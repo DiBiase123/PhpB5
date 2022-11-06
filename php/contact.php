@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +12,23 @@
 <?php include 'header.php';?> 
 
 <body class="limiter">
-<div class="container-flex  text-center">
+<div class="container-flex text-center">
     
     <!-- +++ START CARD CONTACT +++ -->
         <div class="row justify-content-center sfondo">
             <!-- +++ START HEADER CONTACT +++ -->
-                <div class="card-sfondo">
-                    <h2 class="display-2 mt-3"><strong>Contact</strong></h2>
+            <?php include_once('../php/titolo_sito.php'); ?>
+
+                <div class="card-sfondo">                  
                 </div>
             <!-- /// END HEADER CONTACT /// -->
 
             <!-- +++ START BODY CONTACT /// -->
-                <div class="card border-white shadow col-auto bg-card-contact text-start mt-2">
+                <div class="card col-lg-6 border-white shadow col-auto bg-card-contact text-start mt-2">
                     <form class="was-validated" action="./submit_contact.php" method="POST" enctype="multipart/form-data">
                         <div class="mt-3 mb-3">
                             <label for="prenom"  class="form-label text-black ">Votre prénom</label>
-                            <input type="text" class="form-control" id="prenom" placeholder="Required user name" name="prenom" required></input>
+                            <input type="text" class="form-control" id="prenom" placeholder="Required user name" name="prenom" required value="<?php echo ($_SESSION['USER_NAME']); ?>"> </input>
                             <div class="invalid-feedback">
                                 Veuillez entrer votre nom.
                             </div>
@@ -35,7 +37,7 @@
                         <!-- +++ Votre email +++ -->
                             <div class="mb-3 mt-3">
                                 <label for="email" class="form-label text-black">Votre email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Required e-mail" required name="email"></input>
+                                <input type="email" class="form-control" id="email" placeholder="Required e-mail" required name="email" value="<?php echo ($_SESSION['LOGGED_USER']); ?>"></input>
                                 <div class="invalid-feedback">
                                 Veuillez saisir votre email.
                                 </div>
@@ -99,7 +101,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                         </svg>
-                        <p>Code du formulaire securisé en bloquant l'execution de code JavaScript contre les attaques de typeXSS</p>   
+                        <p>Code du formulaire securisé en bloquant l'execution de code JavaScript contre les attaques de typeXSS</p>  
+                        <ul>
+                            <li><p> htmlspecialchars </p></li>
+                        </ul> 
                         <p class="text-dark"><?php echo 'Versione PHP attuale: ' . phpversion();?></p>
                 </div>  
             <!-- /// Content ends /// -->

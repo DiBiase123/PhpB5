@@ -1,40 +1,14 @@
 <?php
-// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
-
-// if (isset($_FILES['screenshot']) && $_FILES['screenshot']['error'] == 0)
-// {
-//         // Testons si le fichier n'est pas trop gros
-//         if ($_FILES['screenshot']['size'] <= 1000000)
-//         {
-//                 // Testons si l'extension est autorisée
-//                 $fileInfo = pathinfo($_FILES['screenshot']['name']);
-//                 $extension = $fileInfo['extension'];
-//                 $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png'];
-//                 if (in_array($extension, $allowedExtensions))
-//                 {
-//                         // On peut valider le fichier et le stocker définitivement
-//                         move_uploaded_file($_FILES['screenshot']['tmp_name'], 'uploads/' . basename($_FILES['screenshot']['name']));
-//                         echo "L'envoi a bien été effectué !";
-//                 }
-//                 else
-//                 {
-//                     echo("file corrotto");
-//                     return;
-//                 }
-//         }
-// }
-
-
-        if (
-            (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-            || (!isset($_POST['message']) || empty($_POST['message']))
-            || empty($_FILES['screenshot']['name'])
-        )
-        {
-            echo('Il faut un email et un message valides pour soumettre le formulaire.');
-            return;
-        }
-        
+if 
+  (
+    (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+    || (!isset($_POST['message']) || empty($_POST['message']))
+    // || empty($_FILES['screenshot']['name'])
+  )
+{
+    echo('Il faut un email et un message valides pour soumettre le formulaire.');
+    return;
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +28,8 @@
 background: linear-gradient(-135deg,#c850c0,#4158d0);
 }
 </style>
-<?php include './header.php'; ?> 
+ 
+<?php include '../php/header.php';?> 
 
 <body>
      
@@ -68,10 +43,10 @@ background: linear-gradient(-135deg,#c850c0,#4158d0);
             <div class="card p-2">
                 <h5 class="card-title text-dark p-2">Rappel de vos informations</h5>
                 <div class="card-body p-2"> 
-                    <p class="card-text text-start"> <em> Prenom : <strong class="text-primary"> <?php echo $_POST['prenom']; ?></strong></em></p>
-                    <p class="card-text text-start"> <em> Email : <strong class="text-primary"><?php echo $_POST['email']; ?></strong></em></p>
+                    <p class="card-text text-start"> <em> Prenom : <strong class="text-primary"> <?php echo htmlspecialchars ($_POST['prenom']); ?></strong></em></p>
+                    <p class="card-text text-start"> <em> Email : <strong class="text-primary"><?php echo htmlspecialchars ($_POST['email']); ?></strong></em></p>
                     <p class="card-text text-start"> <em> Message : <strong class="text-primary"><?php echo htmlspecialchars($_POST['message']); ?></strong></em></p>
-                    <p class="card-text text-start"> <em> Screenshoot : <strong class="text-primary"><?php echo $_FILES['screenshot']['name']; ?></strong></em></p>
+                    <p class="card-text text-start"> <em> Screenshoot : <strong class="text-primary"><a href="../uploads/<?php echo basename($_FILES['screenshot']['name']) ?>"> <?php echo $_FILES['screenshot']['name'] ?></a></strong></em></p>
                 </div>
             </div>
             </section>
@@ -93,6 +68,34 @@ background: linear-gradient(-135deg,#c850c0,#4158d0);
             </svg>
           </div>
         <!-- --- Waves end --- -->
+
+        <div class="content text-dark" id="content">
+          <?php
+            // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+            if (isset($_FILES['screenshot']) && $_FILES['screenshot']['error'] == 0)
+            {
+              // Testons si le fichier n'est pas trop gros
+              if ($_FILES['screenshot']['size'] <= 1000000)
+              {
+                // Testons si l'extension est autorisée
+                $fileInfo = pathinfo($_FILES['screenshot']['name']);
+                $extension = $fileInfo['extension'];
+                $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png'];
+                if (in_array($extension, $allowedExtensions))
+                {
+                        // On peut valider le fichier et le stocker définitivement
+                        move_uploaded_file($_FILES['screenshot']['tmp_name'], "../uploads/".basename($_FILES['screenshot']['name']));
+                        echo ("<div id='content'> L'envoi du fichier : <br/>" . '"' . basename($_FILES['screenshot']['name']) . '"' . "<br/> a bien été effectué ! </div>" );
+                }
+                else
+                {
+                    echo("file corrotto");
+                    return;
+                }
+              }
+            }
+          ?>
+        </div>
 
       </div>
       <!--Header ends-->
