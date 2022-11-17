@@ -2,9 +2,6 @@
 // PERMETTE DI UTILISARE LA SUPERGLOBALE SESSION //
 session_start() ;
 
-// FILTRO ANTI XSS                      
-// filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-// // $mail = strip_tags(INPUT_POST,'email') ;
 $users = [
     [
         'full_name' => 'Mickaël Andrieu',
@@ -57,19 +54,7 @@ $recipes = [
         'author' => 'laurene.castor@exemple.com',
         'is_enabled' => false,
     ],
-    [
-        'title' => 'Salade Romaine',
-        'recipe' => '',
-        'author' => 'giuliano@g.g',
-        'is_enabled' => true,
-    ],
 ];
-
-if(isset($_GET['limit']) && is_numeric($_GET['limit'])) {
-    $limit = (int) $_GET['limit'];
-} else {
-    $limit = 100;
-}
 
 
 if (isset($_POST['email']) &&  isset($_POST['password'])) {
@@ -94,6 +79,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
             );    
         }
         }} 
+        
 ?>
 
 <!DOCTYPE html>
@@ -102,9 +88,11 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <title>Connexion Char-ID</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/rains.css"> 
+   
 </head>
 <?php include '../php/header.php';?> 
 

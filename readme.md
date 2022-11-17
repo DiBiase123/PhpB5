@@ -18,3 +18,12 @@ sudo service mysql start
 PDO ;
 
 $ php -S localhost:8000
+
+
+*************
+Apache Mysql Phpmyadmin
+
+User: xaraton
+pw: micio1917!
+
+*************

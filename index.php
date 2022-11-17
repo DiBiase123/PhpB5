@@ -1,191 +1,161 @@
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
+    <title>CHAR-ID</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" src="./img/orsocoin.png" type="image/png">   
-    <title>Bootstrap demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="./css/rains.css">
+</head>
 
-  <?php include './php/header.php';?>  
-<style>
- body
- {
-    width: 100%;
-    height: 100wh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
- .wave{
-    background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
-radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
-radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
-background-size: 110px 200px;
-background-repeat: repeat-x;
- }
- 
- #honeycomb2
- {
-    background:
-       green ;
-    background-size: 40px 60px;
- };
+<body class="limiter">
+<?php require_once('./php/header.php'); ?>
 
- #honeycomb1
-  {
-      background:
-        red ;
-      background-size: 40px 60px;
-  };
+    <div class="container-flex text-center sfondo">
+        <?php include_once('./php/titolo_sito.php'); ?>
+        
+            <div class="row justify-content-evenly ">
+                <!-- +++ START ACCORDION +++ -->
+                    <div class="accordion col-3 p-2 mt-4" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    APACHE + MYSQL + PHP // PHPMYADMIN
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>Gestionnaire de réservation</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    PHP Auto-cours
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>
+                                        <ul>
+                                            <li id="const"><a href="../PDO/costantes.php">Les Costantes</a></li>
+                                            <li id="const"><a href="../PDO/variables.php">Les Variables</a></li>
 
-  .matrix{
+                                        </ul>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    WORDPRESS
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>
+                                        <ul>
+                                            <li id="sommaire"><a href="https://espri101it.go.yo.fr/">Esprit</a></li>
+                                            <li id="sommaire"><a href="https://lepaysanurbain.fr/">Le Paysan Urbain</a></li>
+                                        </ul>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingQuattro">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuattro" aria-expanded="false" aria-controls="collapseQuattro">
+                                    Java & JavaScript
+                                </button>
+                            </h2>
+                            <div id="collapseQuattro" class="accordion-collapse collapse" aria-labelledby="headingQuattro" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>
+                                        <ul>
+                                            <li id="sommaire"><a href="https://espri101it.go.yo.fr/">Java</a></li>
+                                            <li id="sommaire"><a href="https://lepaysanurbain.fr/">JavaScript</a></li>
+                                        </ul>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCinque">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCinque" aria-expanded="false" aria-controls="collapseCinque">
+                                    HTML & CSS
+                                </button>
+                            </h2>
+                            <div id="collapseCinque" class="accordion-collapse collapse" aria-labelledby="headingCinque" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>
+                                        <ul>
+                                            <li id="sommaire"><a href="#">Lein 1</a></li>
+                                            <li id="sommaire"><a href="#">Lein 2</a></li>
+                                        </ul>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /// END ACCORDION /// -->
 
-  
-  background-image: url("./img/sample.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll;
-  }
+                <!-- +++ START SECONDA COLONNA +++ -->
+                <?php if
+                        (isset($_SESSION['LOGGED_USER']))
+                        {
+                            include_once('./php/session_table_list_recette.php');
+                        }
+                        else
+                        {
+                            include_once('./php/table_presentation.php');
+                        }
+                         ?>
+                                                 
+                <!-- /// END SECONDA COLONNA /// -->
+            </div>
 
+            <!-- +++ Waves Container +++ -->
+                <svg class="waves mt-5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
+            <!-- /// Waves end /// -->
 
-
-</style>
-
-<body>
-  
-
-<div class="container " id="">
-    <h1>Hello, world!</h1>
-    <script>
-  $('.button--bubble').each(function() {
-  var $circlesTopLeft = $(this).parent().find('.circle.top-left');
-  var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
-
-  var tl = new TimelineLite();
-  var tl2 = new TimelineLite();
-
-  var btTl = new TimelineLite({ paused: true });
-
-  tl.to($circlesTopLeft, 1.2, { x: -25, y: -25, scaleY: 2, ease: SlowMo.ease.config(0.1, 0.7, false) });
-  tl.to($circlesTopLeft.eq(0), 0.1, { scale: 0.2, x: '+=6', y: '-=2' });
-  tl.to($circlesTopLeft.eq(1), 0.1, { scaleX: 1, scaleY: 0.8, x: '-=10', y: '-=7' }, '-=0.1');
-  tl.to($circlesTopLeft.eq(2), 0.1, { scale: 0.2, x: '-=15', y: '+=6' }, '-=0.1');
-  tl.to($circlesTopLeft.eq(0), 1, { scale: 0, x: '-=5', y: '-=15', opacity: 0 });
-  tl.to($circlesTopLeft.eq(1), 1, { scaleX: 0.4, scaleY: 0.4, x: '-=10', y: '-=10', opacity: 0 }, '-=1');
-  tl.to($circlesTopLeft.eq(2), 1, { scale: 0, x: '-=15', y: '+=5', opacity: 0 }, '-=1');
-
-  var tlBt1 = new TimelineLite();
-  var tlBt2 = new TimelineLite();
-  
-  tlBt1.set($circlesTopLeft, { x: 0, y: 0, rotation: -45 });
-  tlBt1.add(tl);
-
-  tl2.set($circlesBottomRight, { x: 0, y: 0 });
-  tl2.to($circlesBottomRight, 1.1, { x: 30, y: 30, ease: SlowMo.ease.config(0.1, 0.7, false) });
-  tl2.to($circlesBottomRight.eq(0), 0.1, { scale: 0.2, x: '-=6', y: '+=3' });
-  tl2.to($circlesBottomRight.eq(1), 0.1, { scale: 0.8, x: '+=7', y: '+=3' }, '-=0.1');
-  tl2.to($circlesBottomRight.eq(2), 0.1, { scale: 0.2, x: '+=15', y: '-=6' }, '-=0.2');
-  tl2.to($circlesBottomRight.eq(0), 1, { scale: 0, x: '+=5', y: '+=15', opacity: 0 });
-  tl2.to($circlesBottomRight.eq(1), 1, { scale: 0.4, x: '+=7', y: '+=7', opacity: 0 }, '-=1');
-  tl2.to($circlesBottomRight.eq(2), 1, { scale: 0, x: '+=15', y: '-=5', opacity: 0 }, '-=1');
-  
-  tlBt2.set($circlesBottomRight, { x: 0, y: 0, rotation: 45 });
-  tlBt2.add(tl2);
-
-  btTl.add(tlBt1);
-  btTl.to($(this).parent().find('.button.effect-button'), 0.8, { scaleY: 1.1 }, 0.1);
-  btTl.add(tlBt2, 0.2);
-  btTl.to($(this).parent().find('.button.effect-button'), 1.8, { scale: 1, ease: Elastic.easeOut.config(1.2, 0.4) }, 1.2);
-
-  btTl.timeScale(2.6);
-
-  $(this).on('mouseover', function() {
-    btTl.restart();
-  });
-});
-</script>
-<div>
-
-  <!-- IMMAGINE DI NON SO COSA -->
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-    <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-      <feComposite in="SourceGraphic" in2="goo"/>
-    </filter>
-    </defs>
-  </svg>
-  <!-- FINE +++ IMMAGINE DI NON SO COSA -->
-
-
-<span class="button--bubble__container">
-<a href="#campaign" class="button button--bubble">
-Hover me
-</a>
-<span class="button--bubble__effect-container">
-<span class="circle top-left"></span>
-<span class="circle top-left"></span>
-<span class="circle top-left"></span>
-
-<span class="button effect-button"></span>
-
-<span class="circle bottom-right"></span>
-<span class="circle bottom-right"></span>
-<span class="circle bottom-right"></span>
-</span>
-</span>
-</div>
-
-
-  <!-- CARDS -->
-  <div class="row">
-
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body wave">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-info text-white">Go somewhere</a>
-        </div>
-      </div>
+            <!-- +++ Content starts +++ -->
+                <div class="content justify-content-center ">
+                    <div class="alert alert-success" role="alert">
+                        <?php echo ('Bonjour et Bienvenue sur le site ' . $_SESSION['LOGGED_USER']) ?>
+                        <a href="../html/ajouter_recette.php">
+                        <?php 
+                        if 
+                            (
+                                (isset($_SESSION['LOGGED_USER']))
+                            )
+        
+                                echo('Zona segreta'); ?>
+                        </a>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg>
+                    <p>DI BIASE Giuliano</p>
+                </div>
+            <!-- /// Content ends /// -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body " id="honeycomb2">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- FINE ++++ CARDS -->
+</body>
 
-
-    <div class="ratio ratio-16x9 flex">
-      <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-    </div>
-
-</div>
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
- 
-  <?php 
-    ini_set ( 'display_errors', 1 );
-    error_reporting ( E_ALL );
-  ?>
- 
- 
- </div>
-
- </body>
 </html>

@@ -13,5 +13,5 @@
             </div>
    
         </div>
-  <img class="pb-3" src="../img/orsocoin.png" alt="orsocoin" width="7.5%" height="auto" >
+  <img class="pb-3" src="/img/orsocoin_v1.png" alt="orsocoin" width="7.5%" height="auto" >
 </div>

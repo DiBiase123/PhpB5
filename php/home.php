@@ -1,10 +1,71 @@
-<?php session_start() ?>
+<?php 
+session_start(); 
+$users = [
+    [
+        'full_name' => 'Mickaël Andrieu',
+        'email' => 'user@exemple.com',
+        'age' => 34,
+        'password' => "devine",
+    ],
+    [
+        'full_name' => 'Mathieu Nebra',
+        'email' => 'mathieu.nebra@exemple.com',
+        'age' => 34,
+        'password' => "orsetto",
+    ],
+    [
+        'full_name' => 'Laurène Castor',
+        'email' => 'laurene.castor@exemple.com',
+        'age' => 28,
+        'password' => "orsetto",
+    ],
+    [
+        'full_name' => 'Giuliano',
+        'email' => 'giuliano@g.g',
+        'age' => 28,
+        'password' => "111",
+    ],
+];
+
+$recipes = [
+    [
+        'title' => 'Cassoulet',
+        'recipe' => '',
+        'author' => 'mickael.andrieu@exemple.com',
+        'is_enabled' => true,
+    ],
+    [
+        'title' => 'Couscous',
+        'recipe' => '',
+        'author' => 'mickael.andrieu@exemple.com',
+        'is_enabled' => false,
+    ],
+    [
+        'title' => 'Escalope milanaise',
+        'recipe' => '',
+        'author' => 'mathieu.nebra@exemple.com',
+        'is_enabled' => true,
+    ],
+    [
+        'title' => 'Salade Romaine',
+        'recipe' => '',
+        'author' => 'laurene.castor@exemple.com',
+        'is_enabled' => false,
+    ],
+];
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <title>CHAR-ID</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/rains.css">
 </head>
@@ -17,161 +78,54 @@
         
             <div class="row justify-content-evenly ">
                 <!-- +++ START ACCORDION +++ -->
-                    <div class="accordion col-3 p-2 mt-4" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    APACHE + MYSQL + PHP // PHPMYADMIN
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>Gestionnaire de réservation</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    PHP Auto-cours
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>
-                                        <ul>
-                                            <li id="const"><a href="../PDO/costantes.php">Les Costantes</a></li>
-                                            <li id="const"><a href="../PDO/variables.php">Les Variables</a></li>
 
-                                        </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    WORDPRESS
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>
-                                        <ul>
-                                            <li id="sommaire"><a href="https://espri101it.go.yo.fr/">Esprit</a></li>
-                                            <li id="sommaire"><a href="https://lepaysanurbain.fr/">Le Paysan Urbain</a></li>
-                                        </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingQuattro">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuattro" aria-expanded="false" aria-controls="collapseQuattro">
-                                    Java & JavaScript
-                                </button>
-                            </h2>
-                            <div id="collapseQuattro" class="accordion-collapse collapse" aria-labelledby="headingQuattro" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>
-                                        <ul>
-                                            <li id="sommaire"><a href="https://espri101it.go.yo.fr/">Java</a></li>
-                                            <li id="sommaire"><a href="https://lepaysanurbain.fr/">JavaScript</a></li>
-                                        </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingCinque">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCinque" aria-expanded="false" aria-controls="collapseCinque">
-                                    HTML & CSS
-                                </button>
-                            </h2>
-                            <div id="collapseCinque" class="accordion-collapse collapse" aria-labelledby="headingCinque" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>
-                                        <ul>
-                                            <li id="sommaire"><a href="#">Lein 1</a></li>
-                                            <li id="sommaire"><a href="#">Lein 2</a></li>
-                                        </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card col-3 sfondo border rounded shadow text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-pills card-header-pills">
+                        <li class="nav-item  border border-white">
+                            <a class="nav-link active" href="#">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="#">Link</a>
+                        </li>
+                        
+                            <li class="nav-item">
+                                <span class="badge badge-info p-2 m-2">
+                                    <?php require_once('control_id.php');?>
+                            </span> 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Menu personelle</h5>
+                        <ul>
+                            <li class="list-unstyled">
+                        <a href="table_list_miericette.php" class="card-text">++ Le mie ricette</a></li>
+                        <li class="list-unstyled">
+                        <a href="../html/ajouter_recette.php" class="card-text">++ Aggiungere Ricetta</a></li>
+                         <p class="card-text">Preferiti</p>
+                         <p class="card-text">I miei commenti</p>
+                         <li class="nav-item">
+                            <a class="nav-link text-warning" href="../html/update.php">++ Update recette</a>
+                        </li>
+                         </ul>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                     </div>
                 <!-- /// END ACCORDION /// -->
 
                 <!-- +++ START SECONDA COLONNA +++ -->
-                    <div class="bg-white mt-5 col-6 sfondo border rounded shadow">
-            
-                        <table class="table p-2">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <table class="table">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
+                <?php if
+                        (isset($_SESSION['LOGGED_USER']))
+                        {
+                            include_once('./session_table_list_recette.php');
+                        }
+                        else
+                        {
+                            include_once('./table_presentation.php');
+                        }
+                         ?>
+                                                 
                 <!-- /// END SECONDA COLONNA /// -->
             </div>
 
@@ -193,7 +147,15 @@
                 <div class="content justify-content-center ">
                     <div class="alert alert-success" role="alert">
                         <?php echo ('Bonjour et Bienvenue sur le site ' . $_SESSION['LOGGED_USER']) ?>
-                                    
+                        <a href="../html/ajouter_recette.php">
+                        <?php 
+                        if 
+                            (
+                                (isset($_SESSION['LOGGED_USER']))
+                            )
+        
+                                echo('Zona segreta'); ?>
+                        </a>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />

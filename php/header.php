@@ -6,7 +6,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#">
-            <img src="../img/orsocoin.png" alt="OrsoCoin" width="52px" height="52px">
+            <img src="../img/orsocoin_v1.png" alt="OrsoCoin" width="52px" height="52px">
 
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -19,6 +19,9 @@
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="../html/login.php">Log IN</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../html/sign in.php">Sign In</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="matrix.php">Matrix</a>
