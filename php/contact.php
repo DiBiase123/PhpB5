@@ -30,7 +30,7 @@
                     <form class="was-validated" action="./submit_contact.php" method="POST" enctype="multipart/form-data">
                         <div class="mt-3 mb-3">
                             <label for="prenom"  class="form-label text-black ">Votre prénom</label>
-                            <input type="text" class="form-control" id="prenom" placeholder="Required user name" name="prenom" required value="<?php echo ($_SESSION['USER_NAME']); ?>"> </input>
+                            <input type="text" class="form-control" id="prenom" placeholder="Required user name" name="prenom" required value="<?php echo ( $_SESSION['session_user_fullname'] ); ?>"> </input>
                             <div class="invalid-feedback">
                                 Veuillez entrer votre nom.
                             </div>
@@ -39,7 +39,7 @@
                         <!-- +++ Votre email +++ -->
                             <div class="mb-3 mt-3">
                                 <label for="email" class="form-label text-black">Votre email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Required e-mail" required name="email" value="<?php echo ($_SESSION['LOGGED_USER']); ?>"></input>
+                                <input type="email" class="form-control" id="email" placeholder="Required e-mail" required name="email" value="<?php echo ($_SESSION['session_user']); ?>"></input>
                                 <div class="invalid-feedback">
                                 Veuillez saisir votre email.
                                 </div>

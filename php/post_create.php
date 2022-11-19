@@ -43,7 +43,7 @@ background: linear-gradient(-135deg,#c850c0,#4158d0);
             <div class="card p-2">
                 <h5 class="card-title text-dark p-2">Rappel des informations</h5>
                 <div class="card-body p-2"> 
-                    <p class="card-text text-start"> <em> Author : <strong class="text-primary"> <?php echo htmlspecialchars ($_SESSION['USER_NAME']);?></strong></em></p>
+                    <p class="card-text text-start"> <em> Author : <strong class="text-primary"> <?php echo htmlspecialchars ($_SESSION['session_user']);?></strong></em></p>
                     <p class="card-text text-start"> <em> Title Recette : <strong class="text-primary"><?php echo htmlspecialchars ($_POST['title']); ?></strong></em></p>
                     <p class="card-text text-start"> <em> Description : <strong class="text-primary"><?php echo htmlspecialchars($_POST['recipe']); ?></strong></em></p>
                 </div>
@@ -70,8 +70,8 @@ background: linear-gradient(-135deg,#c850c0,#4158d0);
 
         <div class="content text-dark" id="content">
     <?php
-        if(isset($_SESSION['LOGGED_USER'])) 
-        echo ('Bonjour et Bienvenue sur le site : ' . $_SESSION['LOGGED_USER']);    
+        if(isset($_SESSION['session_user'])) 
+        echo ('Bonjour et Bienvenue sur le site : ' . $_SESSION['session_user']);    
         try
         {
             $db = new PDO('mysql:host=localhost;dbname=we_love_food;charset=utf8', 'xaraton', 'micio1917!');
@@ -95,7 +95,7 @@ background: linear-gradient(-135deg,#c850c0,#4158d0);
         $insertRecipe->execute([
             'title' =>  $_POST['title'],
             'recipe' => $_POST['recipe'],
-            'author' => $_SESSION['LOGGED_USER'],
+            'author' => $_SESSION['session_user'],
             'is_enabled' => 1, // 1 = true, 0 = false
         ]);
 ?>

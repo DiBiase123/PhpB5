@@ -11,7 +11,7 @@ if
 }
 
 $full_name =  $_POST['full_name'];
-$email = $_POST['email'];
+$username = $_POST['email'];
 $password = $_POST['password'];
 ?>
 
@@ -49,7 +49,7 @@ $password = $_POST['password'];
                     <div class="card-body p-2">
                         <p class="card-text text-start"> <em> Nom & Prénom : <strong class="text-primary"><?php echo htmlspecialchars($_POST['full_name']); ?></strong></em></p>
                         <p class="card-text text-start"> <em> E-mail : <strong class="text-primary"><?php echo htmlspecialchars($_POST['email']); ?></strong></em></p>
-                        <p class="card-text text-start"> <em> Password : <strong class="text-primary"><?php echo htmlspecialchars($_POST['password']); ?></strong></em></p>
+                        <input class="border-0" type="password" disabled readonly value="<?php echo htmlspecialchars($_POST['password']); ?>"> </input>
                     </div>
                 </div>
             </section>
@@ -75,14 +75,14 @@ $password = $_POST['password'];
                 <?php
 
                 try {
-                    $db = new PDO('mysql:host=localhost;dbname=we_love_food;charset=utf8', 'xaraton', 'micio1917!');
+                    $db = new PDO('mysql:host=localhost;dbname=chambre;charset=utf8', 'xaraton', 'micio1917!');
                 } catch (Exception $e) {
                     die('Erreur : ' . $e->getMessage());
                 }
 
                 // Si tout va bien, on peut continuer
                 // Ecriture de la requête
-                $sqlQuery = 'INSERT INTO users(full_name, email, password, age ) VALUES (:full_name, :email, :password, :age)';
+                $sqlQuery = 'INSERT INTO users(full_name, username, password, age ) VALUES (:full_name, :username, :password, :age)';
 
                 // Préparation
                 $insertRecipe = $db->prepare($sqlQuery);
@@ -90,11 +90,13 @@ $password = $_POST['password'];
                 // Exécution ! La recette est maintenant en base de données
                 $insertRecipe->execute([
                     'full_name' =>  $_POST['full_name'],
-                    'email' =>  $_POST['email'],
+                    'username' =>  $_POST['email'],
                     'password' => $_POST['password'],
                     'age' => 0,
                 ]);
                 ?>
+
+                
 
                        <!-- +++ si message d'erreur on l'affiche  +++ -->
                        <?php if(isset($errorMessage)) : ?>
@@ -105,8 +107,8 @@ $password = $_POST['password'];
                 
 
                         <?php else :
-                            echo ('Bonjour et Bienvenue sur le site : ' . $_POST['full_name']);
-                            header('Refresh: 3; URL=../php/home.php');
+                            echo ('Bonjour et Bienvenue sur le site : ' .  $_SESSION['session_user_fullname'] );
+                            header('Refresh: 3; Location: home.php');
                             
                         ?>
 

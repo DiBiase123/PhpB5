@@ -39,7 +39,7 @@ session_start(); ?>
 
                     <div class="mb-3 text-start">
                         <label for="author" class="form-label ">Author :</label>
-                        <input class="form-control" name="author" id="author" cols="10" rows="10" values="<?php echo ($_SESSION['USER_NAME']); ?>" placeholder="<?php echo ($_SESSION['USER_NAME']); ?>">
+                        <input class="form-control" name="author" id="author" cols="10" rows="10" values="<?php echo $_SESSION['session_user']; ?>" placeholder="<?php echo $_SESSION['session_user']; ?>">
                         </input>
 
                     </div>

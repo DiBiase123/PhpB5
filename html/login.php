@@ -1,86 +1,7 @@
 <?php
 // PERMETTE DI UTILISARE LA SUPERGLOBALE SESSION //
 session_start() ;
-
-$users = [
-    [
-        'full_name' => 'Mickaël Andrieu',
-        'email' => 'user@exemple.com',
-        'age' => 34,
-        'password' => "devine",
-    ],
-    [
-        'full_name' => 'Mathieu Nebra',
-        'email' => 'mathieu.nebra@exemple.com',
-        'age' => 34,
-        'password' => "orsetto",
-    ],
-    [
-        'full_name' => 'Laurène Castor',
-        'email' => 'laurene.castor@exemple.com',
-        'age' => 28,
-        'password' => "orsetto",
-    ],
-    [
-        'full_name' => 'Giuliano',
-        'email' => 'giuliano@g.g',
-        'age' => 28,
-        'password' => "111",
-    ],
-];
-
-$recipes = [
-    [
-        'title' => 'Cassoulet',
-        'recipe' => '',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => true,
-    ],
-    [
-        'title' => 'Couscous',
-        'recipe' => '',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => false,
-    ],
-    [
-        'title' => 'Escalope milanaise',
-        'recipe' => '',
-        'author' => 'mathieu.nebra@exemple.com',
-        'is_enabled' => true,
-    ],
-    [
-        'title' => 'Salade Romaine',
-        'recipe' => '',
-        'author' => 'laurene.castor@exemple.com',
-        'is_enabled' => false,
-    ],
-];
-
-
-if (isset($_POST['email']) &&  isset($_POST['password'])) {
-    foreach ($users as $user) {
-        if (
-            $user['email'] === $_POST['email'] &&
-            $user['password'] === $_POST['password']
-        ) {
-            $loggedUser = [
-                'email' => $user['email'],
-            ];
-            // UTILIZZIAMO LOGGED_USER PER ASSOCIARE LA SESSUIBE ALLA VARIABILE user-> EMAIL
-            // quindi cookie sessione = alla mia email utilizzatore é un po na merda no?
-            $_SESSION['LOGGED_USER'] = $user['email'];
-            $_SESSION['USER_NAME'] = $user['full_name'];
-
-        } else 
-        {
-            $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
-                $_POST['email'],
-                $_POST['password']
-            );    
-        }
-        }} 
-        
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,15 +24,15 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
                 <!-- +++ START CARD CONTACT +++ -->
                 
                     <!--  +++ Si utilisateur/trice est non identifié(e), on affiche l'errore' +++ -->
-                        <?php if(!isset($_SESSION['LOGGED_USER'])) : ?>
+                        <?php if(!isset($_SESSION['session_user'])) : ?>
                             <!-- +++ FORMULARIO +++ -->
-                                <form method="POST" action="" > 
+                                <form method="POST" action="../php/post_login.php" > 
                                     <legend><strong><b> Bienvenue !<br>
                                         Acceder au compte: </b></strong>
                                     </legend>
 
                                     <div class="col ">
-                                        <input type="text" name="email" value="" placeholder="E-mail ou n° de téléphone" maxlength="50" 
+                                        <input type="text" name="username"  id="username" value="" placeholder="E-mail ou n° de téléphone" maxlength="50" 
                                                 required autocorrect="off" spellcheck="false" class="mb-3 mt-3" />
                                         <br>
                                         <input type="password" placeholder="Mot de passe" name="password" required autocorrect="off" 
@@ -144,11 +65,15 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
                     <!-- /// Si utilisateur/trice est non identifié(e), on affiche l'errore' /// -->
 
                     <!-- +++ CHECK OK -- REDIRECT STAR +++ -->
+                    <div>
+                        <h5>
                         <?php else:
-                            echo ('Bonjour et Bienvenue sur le site : ' . $_SESSION['LOGGED_USER']);
-                            header('Refresh: 5; URL=../php/home.php');
-                            
+                            echo ('Bonjour et Bienvenue sur le site : ' . $_SESSION['session_user_fullname'] );
+                            header('Refresh: 5; URL=../php/home.php'); 
                         ?>
+                        </h5>
+                    </div>
+                        
 
                         <div class="spinner-border text-warning" role="status">
                             <span class="visually-hidden"> Loading... </span>

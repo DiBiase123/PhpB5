@@ -1,61 +1,5 @@
 <?php 
 session_start(); 
-$users = [
-    [
-        'full_name' => 'Mickaël Andrieu',
-        'email' => 'user@exemple.com',
-        'age' => 34,
-        'password' => "devine",
-    ],
-    [
-        'full_name' => 'Mathieu Nebra',
-        'email' => 'mathieu.nebra@exemple.com',
-        'age' => 34,
-        'password' => "orsetto",
-    ],
-    [
-        'full_name' => 'Laurène Castor',
-        'email' => 'laurene.castor@exemple.com',
-        'age' => 28,
-        'password' => "orsetto",
-    ],
-    [
-        'full_name' => 'Giuliano',
-        'email' => 'giuliano@g.g',
-        'age' => 28,
-        'password' => "111",
-    ],
-];
-
-$recipes = [
-    [
-        'title' => 'Cassoulet',
-        'recipe' => '',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => true,
-    ],
-    [
-        'title' => 'Couscous',
-        'recipe' => '',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => false,
-    ],
-    [
-        'title' => 'Escalope milanaise',
-        'recipe' => '',
-        'author' => 'mathieu.nebra@exemple.com',
-        'is_enabled' => true,
-    ],
-    [
-        'title' => 'Salade Romaine',
-        'recipe' => '',
-        'author' => 'laurene.castor@exemple.com',
-        'is_enabled' => false,
-    ],
-];
-
-
-
 ?>
 
 <!doctype html>
@@ -79,10 +23,10 @@ $recipes = [
             <div class="row justify-content-evenly ">
                 <!-- +++ START ACCORDION +++ -->
 
-                <div class="card col-3 sfondo border rounded shadow text-center">
+                <div class="card col-3 sfondo border rounded text-center">
                     <div class="card-header">
                         <ul class="nav nav-pills card-header-pills">
-                        <li class="nav-item  border border-white">
+                        <li class="nav-item border border-white">
                             <a class="nav-link active" href="#">Informations</a>
                         </li>
                         <li class="nav-item">
@@ -90,7 +34,7 @@ $recipes = [
                         </li>
                         
                             <li class="nav-item">
-                                <span class="badge badge-info p-2 m-2">
+                                <span class="badge badge-info p-2 ">
                                     <?php require_once('control_id.php');?>
                             </span> 
                             </li>
@@ -116,7 +60,7 @@ $recipes = [
 
                 <!-- +++ START SECONDA COLONNA +++ -->
                 <?php if
-                        (isset($_SESSION['LOGGED_USER']))
+                        (isset($_SESSION['session_user']))
                         {
                             include_once('./session_table_list_recette.php');
                         }
@@ -146,12 +90,12 @@ $recipes = [
             <!-- +++ Content starts +++ -->
                 <div class="content justify-content-center ">
                     <div class="alert alert-success" role="alert">
-                        <?php echo ('Bonjour et Bienvenue sur le site ' . $_SESSION['LOGGED_USER']) ?>
+                        <?php echo ('Bonjour et Bienvenue sur le site ' . $_SESSION['session_user']) ?>
                         <a href="../html/ajouter_recette.php">
                         <?php 
                         if 
                             (
-                                (isset($_SESSION['LOGGED_USER']))
+                                (isset($_SESSION['session_user']))
                             )
         
                                 echo('Zona segreta'); ?>

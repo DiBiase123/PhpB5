@@ -1,3 +1,4 @@
+
   <!-- +++ SE CONNESSO VISUALIZZA +++ -->
                         <div class="col-8 ">
                             <table class="table table-responsive-lg sfondo border rounded shadow table-hover align-middle ">
@@ -7,14 +8,15 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Author</th>
+                                        <th scope="col">Options</th>
                                     </tr>
                                 </thead>
+                                
                                 <?php                              
-                                    if(isset($_SESSION['LOGGED_USER'])) 
+                                    if(isset($_SESSION['session_user'])) 
                                     try
                                     {
                                         $db = new PDO('mysql:host=localhost;dbname=we_love_food;charset=utf8', 'xaraton', 'micio1917!');
-                                        $recipesStatement = $db->prepare('SELECT * FROM recipes');
                                     }
                                     catch (Exception $e)
                                     {
@@ -38,8 +40,12 @@
                                             <td class="text-center text-white"><?php echo $recipe['title'];?></td>
                                             <td class="text-center"><?php echo $recipe['recipe']; ?></td>
                                             <td class="text-center text-warning"><?php echo $recipe['author']; ?></td>
-                                            <td> <button class="btn btn-warning"><a href="../html/selection_recette.php">HELLO</a> </button> </td>
-                                           <td> <a role="button" class="btn btn-primary" href="../html/update.php">++ Modifica</a> </td>
+                                            <td> 
+                                                <button class="btn btn-warning"><a href="../html/selection_recette.php">HELLO</a></button> 
+                                                <a role="button" class="btn btn-primary" href="../html/update.php">++ Modifica</a> 
+                                            
+                                            </td>
+                                           
                                         </tr>
                                     <?php }  ?>
                                 </tbody>

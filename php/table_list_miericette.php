@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 
-    <title>No Error</title>
+    <title>Mes recettes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/rains.css">
 
@@ -30,26 +30,40 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Author</th>
+                                        <div class="me-auto bg-transparent">
+                <div class="fw-bold bg-transparent">Bienvenue</div>
+             
+            </div>
                                     </tr>
                                 </thead>
                                 <?php                              
-                                    if(isset($_SESSION['LOGGED_USER'])) 
+                                    if(isset($_SESSION['session_user'])) 
+
+                                    $session_user = htmlspecialchars($_SESSION['session_user'], ENT_QUOTES, 'UTF-8');
+                                    echo($session_user);
+                                    $username = $_SESSION['session_user'];
+
+
                                     try
                                     {
                                         $db = new PDO('mysql:host=localhost;dbname=we_love_food;charset=utf8', 'xaraton', 'micio1917!');
-                                        $recipesStatement = $db->prepare('SELECT * FROM recipes');
                                     }
                                     catch (Exception $e)
                                     {
                                             die('Erreur : ' . $e->getMessage());
                                     }
-                                        
+                                    $author =$session_user;
+
                                     // Si tout va bien, on peut continuer
                                     // On récupère tout le contenu de la table recipes
-                                    $sqlQuery = 'SELECT recipe_id, title, recipe, author FROM recipes WHERE author LIKE "giuliano@g.g"';
+                                    $sqlQuery = "SELECT * FROM recipes WHERE author = :username";
+                                   
+
                                     $recipesStatement = $db->prepare($sqlQuery);
+                                    $recipesStatement->bindParam(':username', $username, PDO::PARAM_STR);
                                     $recipesStatement->execute();
-                                    $recipes = $recipesStatement->fetchAll();
+
+                                    $recipes = $recipesStatement->fetchAll(PDO::FETCH_ASSOC);
                                     // 
                                 ?>
                                 <tbody class="table bg-gradient" >
