@@ -1,21 +1,25 @@
 <?php
 // PERMETTE DI UTILISARE LA SUPERGLOBALE SESSION //
 session_start();
+try 
+{
     $db = new PDO('mysql:host=localhost;dbname=we_love_food;charset=utf8', 'xaraton', 'micio1917!');
-
-$getData = $_GET;
-
-if (!isset($getData['id']) && is_numeric($getData['id'])) {
-    echo ('Il faut un identificant de recette pour le modifier.');
+} 
+catch (Exception $e) 
+{
+    die('Erreur : ' . $e->getMessage());
 }
-
-$retriveRecipeStatment =  $db->prepare('SELECT * FROM recipes WHERE recipe_id = :id');
-$retriveRecipeStatment->execute([
-    'id' => $getData['id'],
-]);
-
-$recipe = $retriveRecipeStatment->fetch(PDO::FETCH_ASSOC);
+if(isset($_GET['recipe_id']) && !empty($_GET['recipe_id']))
+{
+    $recipe_id = strip_tags($_GET['recipe_id']);
+    $sql = "SELECT * FROM `recipes` WHERE `recipe_id`=:recipe_id";
+    $query = $db->prepare($sql);
+    $query->bindValue(':recipe_id', $recipe_id, PDO::PARAM_INT);
+    $query->execute();
+    $recipe = $query->fetch();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,36 +39,61 @@ $recipe = $retriveRecipeStatment->fetch(PDO::FETCH_ASSOC);
     <div class="container-flex text-center sfondo">
         <div class="row justify-content-center align-items-center">
             <?php include_once('../php/titolo_sito.php'); ?>
-            <h1> Mettre à jour <?php echo ($recipe['title']); ?></h1>
-            <div class="container col-auto mb-3">
-            <form class="form" action="../php/post_update.php" method="POST">
+            <h1> Mettre à jour :<span class="text-warning"> <strong><b><?php echo ($recipe['title']); ?></b></strong></span></h1>
+            <div class="container col-md-6 mt-3 mb-3">
+            <form class="form p-2 text-start" action="../php/edit_recette.php?recipe_id=<?= $recipe['recipe_id']; ?> " method="POST">
+          
                 <div class="mb-3">
-                    <label for="id" class="form-label"> Identifiant de la recette </label>
-                    <input type="hidden" name="id" id="id" class="form-control" aria-describedby="title" value="<?php echo $recipe['id']; ?>" required>
+                    <label for="title" class="form-label text-warning"> Titre de la recette :</label>
+                    <input name="title" id="title" class="form-control"  cols="10" rows="10" placeholder="<?php echo $recipe['title']; ?>" value="<?php echo $recipe['title']; ?>" required>  </input>
                 </div>
 
                 <div class="mb-3">
-                    <label for="title" class="form-label"> Titre de la recette </label>
-                    <input type="text" name="title" id="title" class="form-control" aria-describedby="title" value="<?php echo $recipe['title']; ?>" required>
-                    <div id="title-help" class="form-text"> <?php echo $recipe['title']; ?></div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="recipe" class="form-label">Description de la recette</label>
+                    <label for="recipe" class="form-label text-secondary">Description de la recette :</label>
                     <textarea class="form-control text-dark" name="recipe" id="recipe" cols="30" rows="10" required><?php echo $recipe['recipe']; ?> 
                     </textarea>
                 </div>
 
-                <div class="mb-3 text-start">
-                    <label for="author" class="form-label ">Author :</label>
-                    <input class="form-control" name="author" id="author" cols="10" rows="10" placeholder="<?php echo $recipe['author']; ?>">
-                    </input>
-                </div>
+                <button type="submit" class="btn btn-primary mt-3 mb-5"> Envoyer</button>
 
-                <button type="submit" class="btn btn-primary mb-5"> Envoyer</button>
+             
             </form>
-</div>
+
+            
         </div>
+        <!-- +++ Waves Container +++ -->
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                </defs>
+                                <g class="parallax">
+                                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                                </g>
+                            </svg>
+                        <!-- /// Waves end /// -->  
+
+                        <!-- +++ Content starts +++ -->
+                            <div class="content justify-content-center ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <!-- +++ Impossible de se connecter ? +++ -->
+                                    <div class="thirdparty-line mb-3 mt-3">
+                                    <?php if(isset($errorMessage)) : ?>
+                                        <ul class="list-unstyled" id="help-links">
+                                            <li id="loginSupport" rel="internal"> <a href="../php/contact.php" id="a1">Impossible de se connecter ?</li></a>
+                                        </ul>
+                                        <?php else: ?>
+                                            <legend id="a1"> Di Biase</legend>
+                                            <?php endif ?>
+                                    </div>
+                                <!-- /// Impossible de se connecter ? /// -->
+                            </div>
+                        <!-- /// Content ends /// --> 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

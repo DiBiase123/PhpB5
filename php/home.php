@@ -32,6 +32,9 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link text-warning" href="#">Link</a>
                         </li>
+                        <li class="nav-item">
+                           <img role="button" src="../img/soundcloud.svg" width="64px" height="64px" alt="soundcloud" class="image-fluid"> </img>
+                        </li>
                         
                             <li class="nav-item">
                                 <span class="badge badge-info p-2 ">
@@ -98,7 +101,7 @@ session_start();
                                 (isset($_SESSION['session_user']))
                             )
         
-                                echo('Zona segreta'); ?>
+                            ?>
                         </a>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">

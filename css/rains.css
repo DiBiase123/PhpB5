@@ -37,6 +37,19 @@ p {
     color: var(--bs-pink);
   }
 
+  .viola
+  {
+    color: var(--bs-orange);
+  }
+  .viola:hover
+  {
+    color: var(--bs-pink);
+  }
+
+  .viola-boost {
+    
+    background-color: #7734f9;
+  }
 /* /////////// LINK COLORI /////////// */
 
 .limiter{
