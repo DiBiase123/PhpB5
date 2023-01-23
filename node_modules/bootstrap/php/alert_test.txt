@@ -1,0 +1,45 @@
+<script> alert('hello world') </script>
+<script> alert(document.cookie); </script>
+
+<script> alert($_SESSION['LOGGED_USER']) </script>
+
+ <?php   
+  if 
+    (
+        (isset($_POST['email']) AND !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+    )
+    {
+?>  <div class="alert alert-danger" role="alert">
+    <?php echo('No hack pls'); ?> </div> 
+    <?php return; } ?>
+
+
+
+
+    giuliano@g.g
+
+
+      <?php else: header('Location: ../php/home.php') ?> 
+
+        <?php if(isset($loggedUser)) : ?>
+                        Bonjour <?php echo $_COOKIE['LOGGED_USER']; ?> 
+
+
+
+<?php echo ($_SESSION['LOGGED_USER']);?>
+
+
+
+<!-- Si l'utilisateur existe, on affiche les recettes -->
+    <?php if(isset($loggedUser)): ?>        
+
+<?php foreach(get_recipes($recipes, $limit) as $recipe) : ?>
+    <article>
+        <h3><?php echo $recipe['title']; ?></h3>
+        <div><?php echo $recipe['recipe']; ?></div>
+        <i><?php echo display_author($recipe['author'], $users); ?></i>
+    </article>
+<?php endforeach ?>
+<?php endif; ?>
+<!-- Si l'utilisateur existe, on affiche les recettes -->
+                        <?php  exit();   ?>
